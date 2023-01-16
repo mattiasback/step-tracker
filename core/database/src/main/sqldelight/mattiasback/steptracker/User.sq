@@ -1,0 +1,24 @@
+CREATE TABLE dbUser (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    steps INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE INDEX dbStepUser_id ON dbUser(id);
+
+insertNewUser:
+INSERT OR REPLACE INTO dbUser(
+    id,
+    steps
+) VALUES (NULL, ?);
+
+selectAllUsers:
+SELECT * FROM dbUser AS user;
+
+selectLastInsertedRow:
+SELECT last_insert_rowid();
+
+updateUserSteps:
+UPDATE dbUser SET steps = ? WHERE id = ?;
+
+deleteUser:
+DELETE FROM dbUser WHERE id = ?;

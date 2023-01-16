@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
             StepTrackerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
+                    StepTrackerApp("Android")
                 }
             }
         }
@@ -27,14 +27,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun StepTrackerApp(name: String) {
+    Text(text = "Steps: ")
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     StepTrackerTheme {
-        Greeting("Android")
+        StepTrackerApp("Android")
     }
 }

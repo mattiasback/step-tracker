@@ -1,18 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'mattiasback.steptracker'
-    compileSdk 33
+    compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
         applicationId "mattiasback.steptracker"
-        minSdk 28
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        minSdk rootProject.ext.minSdk
+        targetSdk rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCodeNumber
+        versionName rootProject.ext.versionNameString
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -21,6 +23,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -37,7 +42,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.3.0'
+        kotlinCompilerExtensionVersion rootProject.ext.compose_compiler_version
     }
     packagingOptions {
         resources {
@@ -47,17 +52,24 @@ android {
 }
 
 dependencies {
+    implementation libraries.androidx_core
+    implementation libraries.androidx_lifecycle
+    implementation libraries.androidx_compose_activity
+    implementation libraries.androidx_compose_ui
+    implementation libraries.androidx_compose_ui_tooling
+    implementation libraries.androidx_compose_ui_tooling_preview
+    implementation libraries.androidx_compose_material_3
 
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.5.1'
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.compose.material3:material3:1.0.0-beta01'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+    testImplementation libraries.junit
+
+    androidTestImplementation libraries.androidx_test_junit
+    androidTestImplementation libraries.androidx_test_expresso
+    androidTestImplementation libraries.androidx_test_compose
+    androidTestImplementation libraries.androidx_test_manifest
+
+    debugImplementation libraries.androidx_compose_ui_tooling
+    debugImplementation libraries.androidx_compose_ui_tooling_preview
+
+    implementation libraries.hilt
+    kapt libraries.hilt_compiler
 }
