@@ -7,6 +7,9 @@ buildscript {
     dependencies {
         classpath 'com.squareup.sqldelight:gradle-plugin:1.5.4'
     }
+    repositories {
+        google()
+    }
 }
 
 plugins {
@@ -56,7 +59,7 @@ ext {
             androidx_compose_ui_tooling        : "androidx.compose.ui:ui-tooling:$compose_version",
             androidx_compose_ui_tooling_preview: "androidx.compose.ui:ui-tooling-preview:$compose_version",
             androidx_compose_material_3        : 'androidx.compose.material3:material3:1.1.0-alpha03',
-            androidx_compose_material_3_icons  : "androidx.compose.material:material-icons-extended:$compose_version",
+            androidx_compose_material_3_icons  : "androidx.compose.material:material-icons-extended:1.4.0-alpha04",
 
             accompanist_system_ui              : "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version",
             accompanist_permissions            : "com.google.accompanist:accompanist-permissions:$accompanist_version",
@@ -79,6 +82,7 @@ ext {
 
             sqldelight_driver                  : "com.squareup.sqldelight:android-driver:1.5.4",
             sqldelight_coroutines              : "com.squareup.sqldelight:coroutines-extensions:1.5.3",
+            kotlinx_serialization              : "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0",
 
             datastore_preferences              : "androidx.datastore:datastore-preferences:1.0.0",
 
