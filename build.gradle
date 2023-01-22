@@ -58,7 +58,7 @@ ext {
             androidx_compose_ui_util           : "androidx.compose.ui:ui-util:$compose_version",
             androidx_compose_ui_tooling        : "androidx.compose.ui:ui-tooling:$compose_version",
             androidx_compose_ui_tooling_preview: "androidx.compose.ui:ui-tooling-preview:$compose_version",
-            androidx_compose_material_3        : 'androidx.compose.material3:material3:1.1.0-alpha03',
+            androidx_compose_material_3        : 'androidx.compose.material3:material3:1.1.0-alpha04',
             androidx_compose_material_3_icons  : "androidx.compose.material:material-icons-extended:1.4.0-alpha04",
 
             accompanist_system_ui              : "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version",

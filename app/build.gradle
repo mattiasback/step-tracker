@@ -73,6 +73,7 @@ dependencies {
     implementation libraries.hilt
     kapt libraries.hilt_compiler
 
+    implementation project(":core:ui")
     implementation project(":feature:overview")
 
     implementation libraries.timber

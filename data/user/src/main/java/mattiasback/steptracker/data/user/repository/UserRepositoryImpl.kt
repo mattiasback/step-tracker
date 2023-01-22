@@ -29,5 +29,9 @@ internal class UserRepositoryImpl @Inject constructor(
             _stepUserLocalDatasource.updateSteps(id = userId, steps = steps)
         }
 
+    override suspend fun updateDailyGoal(userId: Long, dailyGoal: Long) =
+        withContext(_ioDispatcher) {
+            _stepUserLocalDatasource.updateDailyGoal(id = userId, dailyGoal = dailyGoal)
+        }
 
 }

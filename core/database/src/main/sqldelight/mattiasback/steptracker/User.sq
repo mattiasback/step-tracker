@@ -1,6 +1,7 @@
 CREATE TABLE dbUser (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    steps INTEGER NOT NULL DEFAULT 0
+    steps INTEGER NOT NULL DEFAULT 0,
+    dailyGoal INTEGER DEFAULT NULL
 );
 
 CREATE INDEX dbStepUser_id ON dbUser(id);
@@ -17,8 +18,11 @@ SELECT * FROM dbUser AS user;
 selectLastInsertedRow:
 SELECT last_insert_rowid();
 
-updateUserSteps:
+updateSteps:
 UPDATE dbUser SET steps = ? WHERE id = ?;
+
+updateDailyGoal:
+UPDATE dbUser SET dailyGoal = ? WHERE id = ?;
 
 deleteUser:
 DELETE FROM dbUser WHERE id = ?;

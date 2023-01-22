@@ -13,6 +13,8 @@ import kotlinx.coroutines.launch
 import mattiasback.steptracker.data.user.repository.UserRepository
 import javax.inject.Inject
 
+const val DAILY_GOAL_DEFAULT = 6000L
+
 @HiltViewModel
 class OverviewViewModelImpl @Inject constructor(
     _userRepository: UserRepository,
@@ -26,13 +28,16 @@ class OverviewViewModelImpl @Inject constructor(
             _userRepository.createEmptyUser()
         }
     }
-    
+
     override val viewState =
         combine(
             _uiState,
             _user,
         ) { state, user ->
-            state.copy(steps = user?.steps ?: 0)
+            state.copy(
+                steps = user?.steps ?: 0,
+                dailyGoal = user?.dailyGoal ?: DAILY_GOAL_DEFAULT
+            )
         }.stateIn(viewModelScope, SharingStarted.Lazily, OverviewViewState())
 
     override fun resetEvent() = _uiState.update { it.copy(event = null) }

@@ -1,12 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'com.google.dagger.hilt.android'
-    id 'kotlin-kapt'
 }
 
 android {
-    namespace 'mattiasback.steptracker.feature.overview'
+    namespace 'mattiasback.steptracker.core.ui'
     compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
@@ -17,10 +15,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-
-        vectorDrawables {
-            useSupportLibrary true
-        }
     }
 
     buildTypes {
@@ -29,11 +23,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion rootProject.ext.compose_compiler_version
-    }
     buildFeatures {
         compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion rootProject.ext.compose_compiler_version
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -45,29 +39,14 @@ android {
 }
 
 dependencies {
-    implementation project(":core:ui")
-    implementation project(":data:user")
-
     implementation libraries.androidx_core
-    implementation libraries.androidx_lifecycle
-    implementation libraries.androidx_viewmodel
-
     implementation libraries.androidx_compose_ui
+    implementation libraries.androidx_compose_ui_util
     implementation libraries.androidx_compose_ui_tooling
     implementation libraries.androidx_compose_ui_tooling_preview
     implementation libraries.androidx_compose_material_3
-    implementation libraries.androidx_compose_material_3_icons
-    implementation libraries.compose_navigation
-    implementation libraries.compose_navigation_hilt
-    implementation libraries.accompanist_permissions
-    implementation libraries.accompanist_system_ui
-    implementation libraries.accompanist_transition
-
-    implementation libraries.hilt
-    kapt libraries.hilt_compiler
-
-    implementation libraries.timber
 
     testImplementation libraries.junit
+
     androidTestImplementation libraries.androidx_test_junit
 }

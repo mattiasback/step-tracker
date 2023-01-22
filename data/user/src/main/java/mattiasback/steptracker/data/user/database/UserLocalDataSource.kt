@@ -7,4 +7,5 @@ internal interface UserLocalDataSource {
     val users: Flow<List<DbUser>>
     suspend fun createNewUser(steps: Long = 0): Long
     suspend fun updateSteps(id: Long, steps: Long)
+    suspend fun updateDailyGoal(id: Long, dailyGoal: Long)
 }

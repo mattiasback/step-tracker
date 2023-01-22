@@ -10,7 +10,8 @@ interface OverviewViewModel {
 
 data class OverviewViewState(
     val event: OverviewEvent? = null,
-    val steps: Long = 0
+    val steps: Long = 0,
+    val dailyGoal: Long = 0
 )
 
 sealed class OverviewEvent {

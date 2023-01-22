@@ -21,8 +21,14 @@ internal class UserLocalDataSourceImpl @Inject constructor(
 
     override suspend fun updateSteps(id: Long, steps: Long) =
         withContext(_ioDispatcher) {
-            _database.userQueries.updateUserSteps(steps, id)
+            _database.userQueries.updateSteps(steps, id)
         }
+
+    override suspend fun updateDailyGoal(id: Long, dailyGoal: Long) {
+        withContext(_ioDispatcher) {
+            _database.userQueries.updateSteps(dailyGoal, id)
+        }
+    }
 
     override suspend fun createNewUser(steps: Long): Long =
         withContext(_ioDispatcher) {
