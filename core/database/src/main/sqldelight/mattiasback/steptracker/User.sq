@@ -26,3 +26,9 @@ UPDATE dbUser SET dailyGoal = ? WHERE id = ?;
 
 deleteUser:
 DELETE FROM dbUser WHERE id = ?;
+
+firstUser:
+SELECT * FROM dbUser LIMIT 1;
+
+getCurrentSteps:
+SELECT steps FROM dbUser LIMIT 1;

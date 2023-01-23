@@ -2,6 +2,7 @@ package mattiasback.steptracker.data.user.database
 
 import com.squareup.sqldelight.runtime.coroutines.asFlow
 import com.squareup.sqldelight.runtime.coroutines.mapToList
+import com.squareup.sqldelight.runtime.coroutines.mapToOne
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
@@ -30,6 +31,10 @@ internal class UserLocalDataSourceImpl @Inject constructor(
         }
     }
 
+    override fun getCurrentSteps() =
+        _database.userQueries.getCurrentSteps().asFlow().mapToOne(_ioDispatcher)
+
+
     override suspend fun createNewUser(steps: Long): Long =
         withContext(_ioDispatcher) {
             val id = _database.userQueries.transactionWithResult {
@@ -37,5 +42,10 @@ internal class UserLocalDataSourceImpl @Inject constructor(
                 _database.userQueries.selectLastInsertedRow().executeAsOne()
             }
             return@withContext id
+        }
+
+    override suspend fun firstUser(): DbUser? =
+        withContext(_ioDispatcher) {
+            return@withContext _database.userQueries.firstUser().executeAsOneOrNull()
         }
 }

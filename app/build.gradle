@@ -59,6 +59,8 @@ dependencies {
     implementation libraries.androidx_compose_ui_tooling
     implementation libraries.androidx_compose_ui_tooling_preview
     implementation libraries.androidx_compose_material_3
+    implementation libraries.compose_navigation
+    implementation libraries.compose_navigation_hilt
 
     testImplementation libraries.junit
 

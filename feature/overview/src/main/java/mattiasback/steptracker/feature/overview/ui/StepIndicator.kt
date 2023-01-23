@@ -1,7 +1,6 @@
 package mattiasback.steptracker.feature.overview.ui
 
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -41,8 +40,7 @@ internal fun StepIndicator(
     ) {
         val strokeWidth = 32.dp
         Text(
-            modifier = modifier
-                .padding(horizontal = strokeWidth + 8.dp),
+            modifier = modifier.padding(horizontal = strokeWidth + 8.dp),
             text = steps.toString(),
             style = MaterialTheme.typography.displayLarge,
             maxLines = 2,

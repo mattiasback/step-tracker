@@ -10,14 +10,12 @@ interface DetailsViewModel {
 
 data class DetailsViewState(
     val event: DetailsEvent? = null,
-    val steps: Long = 0,
-    val dailyGoal: Long? = null
 )
 
 sealed class DetailsEvent {
-    object NavigateToX : DetailsEvent()
+    //TODO
 }
 
 sealed class DetailsUiEvent {
-    data class SelectDailyGoal(val dailyGoal: Long) : DetailsUiEvent()
+    //TODO
 }

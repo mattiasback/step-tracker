@@ -8,4 +8,6 @@ interface UserRepository {
     suspend fun createEmptyUser(steps: Long = 0): Long
     suspend fun updateSteps(userId: Long, steps: Long)
     suspend fun updateDailyGoal(userId: Long, dailyGoal: Long)
+    suspend fun getCurrentSteps(): Flow<Long>
+    suspend fun firstUser(): User?
 }

@@ -61,13 +61,13 @@ ext {
             androidx_compose_material_3        : 'androidx.compose.material3:material3:1.1.0-alpha04',
             androidx_compose_material_3_icons  : "androidx.compose.material:material-icons-extended:1.4.0-alpha04",
 
-            accompanist_system_ui              : "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version",
-            accompanist_permissions            : "com.google.accompanist:accompanist-permissions:$accompanist_version",
-            accompanist_transition             : "com.google.accompanist:accompanist-navigation-animation:$accompanist_version",
-
             compose_navigation                 : "androidx.navigation:navigation-compose:$compose_nav_version",
             compose_navigation_hilt            : "androidx.hilt:hilt-navigation-compose:1.0.0",
             compose_constraint_layout          : "androidx.constraintlayout:constraintlayout-compose:1.0.1",
+
+            accompanist_system_ui              : "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version",
+            accompanist_permissions            : "com.google.accompanist:accompanist-permissions:$accompanist_version",
+            accompanist_transition             : "com.google.accompanist:accompanist-navigation-animation:$accompanist_version",
 
             junit                              : "junit:junit:4.13.2",
             androidx_test_junit                : "androidx.test.ext:junit:1.1.5",
@@ -75,19 +75,12 @@ ext {
             androidx_test_compose              : "androidx.compose.ui:ui-test-junit4:$compose_version",
             androidx_test_manifest             : "androidx.compose.ui:ui-test-manifest:$compose_version",
 
-            google_fonts                       : "androidx.compose.ui:ui-text-google-fonts:1.2.1",
-
             hilt                               : "com.google.dagger:hilt-android:$hilt_version",
             hilt_compiler                      : "com.google.dagger:hilt-compiler:$hilt_version",
 
             sqldelight_driver                  : "com.squareup.sqldelight:android-driver:1.5.4",
             sqldelight_coroutines              : "com.squareup.sqldelight:coroutines-extensions:1.5.3",
             kotlinx_serialization              : "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0",
-
-            datastore_preferences              : "androidx.datastore:datastore-preferences:1.0.0",
-
-            seismic                            : "com.squareup:seismic:1.0.3",
-            splash                             : "androidx.core:core-splashscreen:1.0.0-beta02",
 
             timber                             : "com.jakewharton.timber:timber:5.0.1"
     ]
